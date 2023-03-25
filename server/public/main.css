@@ -1,0 +1,43 @@
+body {
+  font-family: 'Heebo', sans-serif;
+  margin: 0;
+  background-color: rgb(5, 11, 25);
+  color: white;
+}
+
+nav {
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav ul {
+  display: flex;
+  column-gap: 25px;
+}
+
+nav ul li{
+  list-style: none;
+  font-size: 25px;
+  position: relative;
+  cursor: pointer;
+}
+
+nav ul li:hover .underline{
+  width: 100%;
+}
+
+.underline {
+  width: 0%;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 3px;
+  position: absolute;
+  transition: width 300ms;
+}
+
+.Logo-text{
+  font-size: 90px;
+  margin: -10px 0;
+}
