@@ -8,7 +8,7 @@ body {
 nav {
   display: flex;
   margin: 0 auto;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   align-items: center;
   justify-content: space-evenly;
 }
@@ -31,7 +31,7 @@ nav ul li:hover .underline{
 
 .underline {
   width: 0%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   height: 3px;
   position: absolute;
   transition: width 300ms;
@@ -40,4 +40,86 @@ nav ul li:hover .underline{
 .Logo-text{
   font-size: 90px;
   margin: -10px 0;
+}
+
+.greyscale{
+  filter: grayscale(96%);
+  width: inherit;
+  height: 100%;
+  object-fit: cover;
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+
+}
+
+
+.grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.box{
+  width: 100%;
+}
+
+section{
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero{
+  font-size: 45px;
+  margin: 5px;
+}
+
+.hero-p{
+  font-size: 16px;
+  font-weight: 300;
+  padding: 10px;
+  padding-right: 50px;
+  margin-top: auto;
+}
+
+.border-right{
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn {
+  font-size: 25px;
+  background-color: transparent;
+  color: whitesmoke;
+  cursor: pointer;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover{
+  background-color: rgba(255, 255, 255, 0.061);
+}
+
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.face{
+  font-size: 25px;
+}
+
+.arrow{
+  margin-left: 10px;
+}
+
+.section{
+  height: 100vh;
+  max-width: 1050px;
+  padding-top: 40px;
+  margin: 0 auto;
+}
+
+h2{
+  font-size: 40px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
