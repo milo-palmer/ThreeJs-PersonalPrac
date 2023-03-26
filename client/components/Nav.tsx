@@ -1,22 +1,27 @@
+import { Link } from 'react-router-dom'
+
 function Nav() {
   return (
     <nav>
       <p className="Logo-text">SN3KERS</p>
       <ul>
         <li>
-          Home
+          <Link to={'/'} className="product-link">
+            Home
+          </Link>
           <div className="underline"></div>
         </li>
         <li>
-          Products
+          <a href="#products" className="product-link">
+            The Collection
+          </a>
+
           <div className="underline"></div>
         </li>
         <li>
-          Products
-          <div className="underline"></div>
-        </li>
-        <li>
-          Products
+          <Link to={'/products/3'} className="product-link">
+            The Basics
+          </Link>
           <div className="underline"></div>
         </li>
       </ul>

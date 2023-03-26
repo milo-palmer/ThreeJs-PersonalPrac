@@ -1,28 +1,40 @@
+import { useEffect, useState } from 'react'
 import Productcard from './Productcard'
+import { getShoes } from '../apiClient'
+
+interface Product {
+  name: string
+  price: number
+  model: string
+  id: number
+}
 
 function Products() {
+  const [shoeData, setShoeData] = useState([] as Product[])
+
+  useEffect(() => {
+    getShoes()
+      .then((shoe) => {
+        setShoeData(() => shoe)
+      })
+      .catch((error) => {
+        console.error(error.message + 'Error loading data')
+      })
+  }, [])
+
   return (
     <section className="section" id="products">
       <h2 className="h2">The Collection</h2>
       <div className="product-grid">
-        <Productcard
-          name="Nike Air Jordans Petopo"
-          price={59.99}
-          model="/images/Shoe.png"
-          id={1}
-        />
-        <Productcard
-          name="Jordan 1s"
-          price={259.99}
-          model="/images/Jordans.jpg"
-          id={2}
-        />
-        <Productcard
-          name="Nike Air Jordans Petopo"
-          price={59.99}
-          model="/images/Shoe.png"
-          id={3}
-        />
+        {shoeData.map((product) => (
+          <Productcard
+            key={product.id}
+            name={product.name}
+            price={product.price}
+            model={product.model}
+            id={product.id}
+          />
+        ))}
       </div>
     </section>
   )

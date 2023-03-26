@@ -3,6 +3,7 @@ import {
   faArrowDown,
   faFaceGrinTongueSquint,
 } from '@fortawesome/free-solid-svg-icons'
+import Products from './Products'
 function Hero() {
   return (
     <>
@@ -30,6 +31,7 @@ function Hero() {
           <FontAwesomeIcon icon={faArrowDown} className="arrow" />
         </button>
       </section>
+      <Products />
     </>
   )
 }
