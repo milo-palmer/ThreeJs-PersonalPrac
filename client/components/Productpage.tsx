@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getShoeById } from '../../server/db/db'
+import { getShoeFromId } from '../apiClient'
 
 interface Shoe {
   id: number
@@ -12,22 +12,42 @@ interface Shoe {
 function Productpage() {
   //Db function call get item by id
   const { id } = useParams()
+  const [shoe, setShoe] = useState({} as Shoe)
 
-  // const [shoe, setShoe] = useState({} as Shoe)
+  if (!id) {
+    return <h1>Data Error</h1>
+  }
+
   // //Id in the params
 
+  useEffect(() => {
+    getShoeFromId(+id)
+      .then((shoe) => {
+        setShoe(() => shoe)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }, [])
+
+  // function handleClick(e) {
+  //   e.preventDefault()
+  //   loadShoe()
+  // }
+
   // const loadShoe = async () => {
-  //   const data = await getShoeById(+id)
+  //   const data = await getShoeFromId(+id)
+  //   console.log(data)
   //   setShoe(() => data)
   // }
 
-  // loadShoe()
+  // console.log(id)
 
-  const shoe = {
-    name: "Jordan 1's",
-    price: 69.99,
-    model: '/images/Jordans.jpg',
-  }
+  // const shoe = {
+  //   name: "Jordan 1's",
+  //   price: 69.99,
+  //   model: '/images/Jordans.jpg',
+  // }
 
   return (
     <section className="section grid gap">
@@ -51,6 +71,7 @@ function Productpage() {
         excepturi placeat modi corrupti recusandae ullam. Est officiis fugit
         repellendus excepturi libero?
       </p>
+      {/* <button onClick={handleClick}>Click</button> */}
     </section>
   )
 }

@@ -8,6 +8,6 @@ export async function getShoes() {
 }
 
 export async function getShoeFromId(id: number) {
-  const response = await request.get(`${url}${id}`)
+  const response = await request.get(`/api/v1/shoes/${id}`)
   return response.body
 }
