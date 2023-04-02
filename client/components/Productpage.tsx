@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getShoeFromId } from '../apiClient'
+import Cardmodel from './Cardmodel'
+import { Canvas } from '@react-three/fiber'
 
 interface Shoe {
   id: number
   name: string
   price: number
   model: string
+  image: string
 }
 
 function Productpage() {
@@ -20,6 +23,7 @@ function Productpage() {
 
   // //Id in the params
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     getShoeFromId(+id)
       .then((shoe) => {
@@ -52,11 +56,9 @@ function Productpage() {
   return (
     <section className="section grid gap">
       <div style={{ width: '100%' }}>
-        <img
-          src={shoe.model}
-          alt=""
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
+        <Canvas>
+          <Cardmodel model={shoe.model} />
+        </Canvas>
       </div>
       <div className="productpage-text-container">
         <div>

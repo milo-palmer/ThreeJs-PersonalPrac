@@ -7,6 +7,7 @@ interface Product {
   price: number
   model: string
   id: number
+  image: string
 }
 
 function Products() {
@@ -33,6 +34,7 @@ function Products() {
             price={product.price}
             model={product.model}
             id={product.id}
+            image={product.image}
           />
         ))}
       </div>
