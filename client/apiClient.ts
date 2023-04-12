@@ -1,5 +1,13 @@
 import request from 'superagent'
 
-export function getGreeting(): Promise<string> {
-  return request.get('/greeting').then((res) => res.body.greeting)
+const url = '/api/v1/shoes/'
+
+export async function getShoes() {
+  const response = await request.get(url)
+  return response.body
+}
+
+export async function getShoeFromId(id: number) {
+  const response = await request.get(`/api/v1/shoes/${id}`)
+  return response.body
 }

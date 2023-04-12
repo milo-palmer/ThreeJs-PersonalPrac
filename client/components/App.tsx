@@ -1,34 +1,15 @@
-import { useState, useEffect } from 'react'
-import { getGreeting } from '../apiClient'
-
+import { Routes, Route } from 'react-router-dom'
+import Nav from './Nav'
+import Hero from './Hero'
+import Productpage from './Productpage'
 const App = () => {
-  const [greeting, setGreeting] = useState('')
-  const [count, setCount] = useState(0)
-  const [isError, setIsError] = useState(false)
-
-  useEffect(() => {
-    getGreeting()
-      .then((greeting) => {
-        console.log(greeting)
-        setGreeting(greeting)
-        setIsError(false)
-      })
-      .catch((err) => {
-        console.log(err)
-        setIsError(true)
-      })
-  }, [count])
-
   return (
     <>
-      {count}
-      <h1>{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/products/:id" element={<Productpage />} />
+      </Routes>
     </>
   )
 }
